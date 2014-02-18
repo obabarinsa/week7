@@ -1,0 +1,42 @@
+<div class="page-header">
+
+  <%= link_to "Add a New Director", new_director_path,
+              :class => "pull-right btn btn-success btn-large" %>
+
+  <h1>Directors</h1>
+</div>
+
+<% @directors.each do |director| %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag director.photo_url, :class => "col-md-10" %>
+    </div>
+    <div class="col-md-9">
+      <h2>
+        <%= link_to director.name, '#' %>
+      </h2>
+      <p>
+        <%= link_to "Edit This Director", '#' %> |
+        <%= link_to "Delete This Director", '#', method: 'delete' %>
+      </p>
+      <p>LIST OF MOVIES GOES HERE</p>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

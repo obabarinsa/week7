@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>Edit Movie</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+
+    <%= form_tag "/movies/#{@movie.id}", :method => 'patch' do %>
+
+      <div class="form-group">
+        <%= label_tag :title %>
+        <%= text_field_tag :title, @movie.title, class: 'form-control', placeholder: 'Enter movie title here' %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :director_id, "Director" %>
+        <select name="director_id" class="form-control">
+          <% Director.all.order('name asc').each do |director| %>
+            <option value=<%= director.id %> <%= "selected" if @movie.director_id == director.id %>>
+              <%= director.name %>
+            </option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :poster_url %>
+        <%= url_field_tag :poster_url, @movie.image_url, class: 'form-control', placeholder: 'Enter URL to a movie poster image' %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :year %>
+        <%= text_field_tag :year, @movie.year, class: 'form-control', placeholder: "Enter year here" %>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Plot Summary:</label>
+        <input type="text" name="plot" class="form-control" id="year" placeholder="Enter year here" %>
+      </div>
+
+      <%= submit_tag 'Update Movie', class: 'btn btn-default' %>
+    <% end %>
+
+  </div>
+</div>
+
