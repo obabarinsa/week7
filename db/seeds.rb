@@ -45,21 +45,12 @@ all_director_data.each do |director_info|
   Director.create(:name => director_info[:name], :photo_url => director_info[:photo_url])
 end
 
-Movie.find_by(title: 'Apollo 13').update(director_id: Director.find_by(name: 'Ron Howard'))
-Movie.find_by(title: 'Backdraft').update(director_id: Director.find_by(name: 'Ron Howard'))
-Movie.find_by(title: 'Lincoln').update(director_id: Director.find_by(name: 'Steven Spielberg'))
-Movie.find_by(title: 'Star Wars').update(director_id: Director.find_by(name: 'George Lucas'))
-Movie.find_by(title: 'Raiders of the Lost Ark').update(director_id: Director.find_by(name: 'Steven Spielberg'))
+m = Movie.find_by(title: 'Apollo 13')
+d = Director.find_by(name: 'Ron Howard')
+m.director_id = d.id
+m.save
 
-
-
-
-
-
-
-
-
-
-
-
+m = Movie.find_by(title: 'Backdraft')
+m.director_id = d.id
+m.save
 

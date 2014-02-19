@@ -19,7 +19,10 @@
         <%= link_to "Edit This Director", '#' %> |
         <%= link_to "Delete This Director", '#', method: 'delete' %>
       </p>
-      <p>LIST OF MOVIES GOES HERE</p>
+      <% movies = Movie.where(:director_id => director.id) %>
+      <% movies.each do |movie| %>
+        <h3><%= movie.title %></h3>
+      <% end %>
     </div>
   </div>
 <% end %>

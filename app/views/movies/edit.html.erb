@@ -16,7 +16,8 @@
         <%= label_tag :director_id, "Director" %>
         <select name="director_id" class="form-control">
           <% Director.all.order('name asc').each do |director| %>
-            <option value=<%= director.id %> <%= "selected" if @movie.director_id == director.id %>>
+            <option value=<%= director.id %>
+              <%= "selected" if @movie.director_id == director.id %>>
               <%= director.name %>
             </option>
           <% end %>

@@ -5,12 +5,12 @@ class MoviesController < ApplicationController
   end
 
   def show
-    the_movie_id = params["movie_id"]
+    the_movie_id = params["id"]
     @movie = Movie.find_by :id => the_movie_id
   end
 
   def destroy
-    the_movie_id = params["movie_id"]
+    the_movie_id = params["id"]
     m = Movie.find_by(:id => the_movie_id)
     m.destroy
     redirect_to movies_url
@@ -31,12 +31,12 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    the_movie_id = params["movie_id"]
+    the_movie_id = params["id"]
     @movie = Movie.find_by(:id => the_movie_id)
   end
 
   def update
-    the_movie_id = params["movie_id"]
+    the_movie_id = params["id"]
     movie = Movie.find_by(:id => the_movie_id)
     movie.title = params["title"]
     movie.year = params["year"]
