@@ -1,7 +1,10 @@
 class Movie < ActiveRecord::Base
 
-  def director
-    Director.find_by(:id => self.director_id)
-  end
+  belongs_to :director
+  has_many :roles
+
+  # def director
+  #   Director.find_by(:id => self.director_id)
+  # end
 
 end
