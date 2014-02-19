@@ -17,10 +17,7 @@
         (<%= movie.year %>)
       </h2>
       <p class="lead"><%= movie.plot %></p>
-      <% d = Director.find_by(:id => movie.director_id) %>
-      <% if d.present? %>
-        <p>Directed by <%= d.name %></p>
-      <% end %>
+      <p>Directed by <%= movie.director.name %></p>
       <p>Starring Tom Hanks, Kevin Bacon</p>
       <p>
         <%= link_to "Edit This Movie", edit_movie_path(movie.id) %> |
